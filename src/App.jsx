@@ -10,6 +10,14 @@ function App() {
     setShowModal(false);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape" && showModal) {
+      setShowModal(false);
+    }
+  };
+
+  document.addEventListener("keydown", handleKeyDown);
+
   return (
     <>
       <button className="show-modal" onClick={openModal}>
@@ -23,7 +31,7 @@ function App() {
       </button>
       {showModal && (
         <>
-          <div className="modal">
+          <div className="modal hidden">
             <button className="close-modal" onClick={closeModal}>
               &times;
             </button>
